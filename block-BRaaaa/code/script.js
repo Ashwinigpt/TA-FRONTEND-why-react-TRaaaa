@@ -1,35 +1,38 @@
-let form = document.querySelector("form");
-let displayData = document.querySelector('.display')
-let movieDetail = {};
+let form = document.querySelector('form');
+let displayData = document.querySelector('.display');
+let movieDetails = [{}];
 
 function handleInput(event) {
-    event.preventDefault();
-    movieDetail.movie = form.elements.movie.value;
-    createUi();
+  event.preventDefault();
+  movieDetails.movie = form.elements.movie.value;
+  createUi();
 }
 
 function createUi() {
-    let insideDisplay = document.createElement('div')
-    insideDisplay.classList.add('insideDisplay')
-    let checkbox = document.createElement('input')
-    checkbox.type = 'checkbox';
-    checkbox.classList.add('checkbox')
-    let movieName = document.createElement('h3')
-    movieName.innerHTML = movieDetail.movie
-    movieName.classList.add('movieName')
-    movieName.style.marginLeft = '2rem'
-    let cross = document.createElement('h4');
-    cross.innerHTML = '❌'
-    cross.style.marginLeft = '3rem'
-    cross.style.cursor = 'pointer'
-    cross.addEventListener('click', () => {
-        insideDisplay.remove('insideDisplay')
-    })
+  let insideDisplay = document.createElement('div');
+  insideDisplay.classList.add('insideDisplay');
 
-    insideDisplay.append(checkbox, movieName, cross)
-    displayData.append(insideDisplay)
+  let movieName = document.createElement('h3');
+  movieName.innerHTML = movieDetails.movie;
+  movieName.classList.add('movieName');
+  movieName.style.marginLeft = '1rem';
 
-    form.elements.movie.value = '';
+  let watchedButton = document.createElement('button');
+  watchedButton.innerHTML = 'To watch';
+  watchedButton.classList.add('watchedButton');
+  watchedButton.style.marginLeft = '1rem';
+  watchedButton.addEventListener('click', () => {
+    if (watchedButton.innerHTML == 'To watch') {
+      watchedButton.innerHTML = 'Watched';
+    } else if (watchedButton.innerHTML == 'Watched') {
+      watchedButton.innerHTML = 'To watch';
+    }
+  });
+  
+  insideDisplay.append(movieName, watchedButton);
+  displayData.append(insideDisplay);
+
+  form.elements.movie.value = '';
 }
 
-form.addEventListener("submit", handleInput);
+form.addEventListener('submit', handleInput);
