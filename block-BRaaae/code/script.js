@@ -49,8 +49,8 @@ function handleChange(event) {
 // }
 
 function createMovieUI(data, root) {
-//   root.innerHTML = '';
-  let ui = data.map((movie, i) => {
+  //   root.innerHTML = '';
+  let movieUI = data.map((movie, i) => {
     let li = React.createElement(
       'li',
       null,
@@ -61,10 +61,10 @@ function createMovieUI(data, root) {
         movie.watched ? 'Watched' : 'To Watch'
       )
     );
+    // rootElm.append(li);
     return li;
   });
-//   rootElm.append(li);
-  ReactDom.render(ui, rootElm);
+  ReactDOM.render(movieUI, rootElm);
 }
 
 createMovieUI(allMovies, rootElm);
