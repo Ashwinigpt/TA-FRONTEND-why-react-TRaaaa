@@ -17,39 +17,38 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        let Card = (props) => {
+        function Article (props) {
             return (
                 <>
-                    <img className="image" src={props.cardInfo.imageURL} alt="" />
-                    <div className="category">{props.cardInfo.category.toUpperCase()}</div>
+                    <img className="image" src={props.articleInfo.imageURL} alt="" />
+                    <div className="category">{props.articleInfo.category.toUpperCase()}</div>
                     <div className="date">
-                        {props.cardInfo.date.getDate()}
+                        {props.articleInfo.date.getDate()}
                         <small>
-                            {props.cardInfo.date
+                            {props.articleInfo.date
                                 .toLocaleString('default', { month: 'long' })
                                 .slice(0, 3).toUpperCase()}
                         </small>
                     </div>
-                    <h1>{props.cardInfo.title}</h1>
-                    <strong>{props.cardInfo.subTitle}</strong>
-                    <p>{props.cardInfo.description}</p>
+                    <h1>{props.articleInfo.title}</h1>
+                    <strong>{props.articleInfo.subTitle}</strong>
+                    <p>{props.articleInfo.description}</p>
                     <div>
                         <span>
                             <i className="far fa-clock">6 mins ago</i>{' '}
                         </span>
                         <span>
                             <i class="fas fa-comments"></i>
-                            {props.cardInfo.comments} comments
+                            {props.articleInfo.comments} comments
                         </span>
                     </div>
                 </>
             )
         }
-        function Article(){
-            return articles.map((article) => < Card cardInfo = {article} />)
+        function Articles (){
+            return articles.map((article) => <Article articleInfo={article} />)
         }
-
-        ReactDOM.render(<Article/>, document.getElementById('root'));
+        ReactDOM.render(<Articles/>, document.getElementById('root'));
     </script>
 </body>
 
