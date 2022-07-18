@@ -1,5 +1,3 @@
-import '../styles/header.css';
-
 function Footer() {
   return (
     <div className="header">
