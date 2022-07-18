@@ -1,7 +1,8 @@
-function Hero(props) {
-    function handleClick() {
-        return alert('Hello React Event');
-    }
+function handleClick() {
+    return alert('Hello React Event');
+}
+
+function Hero() {
     return (
         <>
             <section className="section">

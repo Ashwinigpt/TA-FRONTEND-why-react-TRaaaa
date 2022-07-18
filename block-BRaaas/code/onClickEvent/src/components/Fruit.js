@@ -1,19 +1,19 @@
-function Fruit(props) {
+function handleClick(name) {
+    return alert(`Hello ${name.value}`);
+}
+
+function Fruit() {
     let fruits = [
         { id: 'apple', value: '🍎 apple' },
         { id: 'orange', value: '🍊 orange' },
         { id: 'grape', value: '🍇 grape' },
         { id: 'pear', value: '🍐 pear' },
     ];
-    function handleClick(name) {
-        return alert(`Hello ${name.value}`);
-    }
     return (
         <>
             <section className="section">
-                <h2>Greet</h2>
                 <div>
-                    {fruits.map((elm, i) => {
+                    {fruits.map((elm) => {
                         return (
                             <button
                                 className="btn"
