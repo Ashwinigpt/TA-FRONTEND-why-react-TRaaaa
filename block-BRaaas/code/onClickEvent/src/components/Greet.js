@@ -1,18 +1,19 @@
-function Greet(props) {
+function handleClick(name) {
+  return alert(`Hello ${name}`);
+}
+
+function Greet() {
   let arr = ['Arya', 'John', 'Bran'];
-  function handleClick(name) {
-    return alert(`Hello ${name}`);
-  }
   return (
     <>
       <section className="section">
-        <h2>Greet</h2>
         <div>
           {arr.map((elm, i) => {
             return (
               <button
                 className="btn"
-                key={i} onClick={() => handleClick(elm)}>
+                key={i} 
+                onClick={() => handleClick(elm)}>
                 {elm}
               </button>
             );
